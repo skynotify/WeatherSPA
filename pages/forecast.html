@@ -1,0 +1,28 @@
+<h1>{{title}}</h1>
+<p>Fore Cast for <strong>{{city}}</strong></p>
+<hr>
+<style>
+	.dayspicker>a.bg-primary{
+		padding: 5px;
+		border-radius: 5px;
+	}
+</style>
+<div class='dayspicker'>
+	{{days}} Days in forecast: 
+	<a ng-class="{ 'bg-primary': days === (2) }" href='#/forecast/2'>2</a> |
+	<a ng-class="{ 'bg-primary': days === (4) }" href='#/forecast/4'>4</a> |
+	<a ng-class="{ 'bg-primary': days === (7) }" href='#/forecast/7'>7</a> |
+	<a ng-class="{ 'bg-primary': days === (15) }" href='#/forecast/15'>15</a> |
+</div>
+<hr>
+<div class='cell' ng-repeat='w in weatherResult.list'>
+	<div class='col-md-3'>
+		<weather-report 
+			wd="w"
+			con-temp="to_f(temp)"
+			con-date="to_d(dt)"
+			date-format="EEE - MMM d, y"
+			cnt="{{$index+1}}"
+		></weather-report>
+	</div>
+</div>

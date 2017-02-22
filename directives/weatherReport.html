@@ -1,0 +1,12 @@
+
+<div class='panel panel-default'>
+	<div class='panel-heading' style="background: #E0E0FF;">
+		<h3 class='panel-title'>{{ cnt }}. {{ conDate({ dt: wd.dt }) | date: dateFormat }}</h3>
+	</div>
+	<style>.today{color:#AAA;}</style>
+	<div class='panel-body' ng-class="{today:cnt==1}">
+		Daytime Temp: <b >{{ conTemp( {temp: wd.temp.day} ) }}</b>
+		<hr style='margin:5px 10px;' />
+		<small>Hi/Low:<br />{{ conTemp( {temp: wd.temp.max} ) }} / {{ conTemp( {temp: wd.temp.min} ) }}</small><br />
+	</div>
+</div>
